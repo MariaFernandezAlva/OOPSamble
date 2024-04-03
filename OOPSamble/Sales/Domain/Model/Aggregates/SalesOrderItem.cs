@@ -6,22 +6,22 @@ public class SalesOrderItem
     {
         if (salesOrderId == Guid.Empty)
         {
-            throw new ArgumentException(message:"Sales order id is required.");
+            throw new ArgumentException("Sales order id is required.");
         }
 
         if (productId <= 0)
         {
-            throw new ArgumentException(message:"Product id is required.");
+            throw new ArgumentException("Product id is required.");
         }
 
         if (quantity <= 0)
         {
-            throw new ArgumentException(message:"Quantity must be greater than zero.");
+            throw new ArgumentException("Quantity must be greater than zero.");
         }
         
         if (unitPrice <= 0)
         {
-            throw new ArgumentException(message:"Unit price must be grater than zero.");
+            throw new ArgumentException("Unit price must be grater than zero.");
         }
         
         SalesOrderId = salesOrderId;
@@ -40,4 +40,6 @@ public class SalesOrderItem
     {
         return Guid.NewGuid();
     }
+
+    public double CalculateItemPrice() => Quantity * UnitPrice;
 }
